@@ -4,7 +4,8 @@
   "description": "Simple WebApp for App Engine",
   "main": "./src/main.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node ./src/main.ts",
+    "start-dev": "ts-node-dev ./src/main.ts"
   },
   "repository": {
     "type": "git",
@@ -12,8 +13,18 @@
   },
   "author": "tama@ttk1.net",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ttk1/SimpleWebApp/issues"
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "@types/node": "^12.12.7",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "eslint": "^6.6.0",
+    "ts-node-dev": "^1.0.0-pre.44"
   },
-  "homepage": "https://github.com/ttk1/SimpleWebApp#readme"
+  "dependencies": {
+    "ejs": "^2.7.2",
+    "express": "^4.17.1",
+    "ts-node": "^8.5.0",
+    "typescript": "^3.7.2"
+  }
 }
