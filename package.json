@@ -1,0 +1,19 @@
+{
+  "name": "simplewebapp",
+  "version": "1.0.0",
+  "description": "Simple WebApp for App Engine",
+  "main": "./src/main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttk1/SimpleWebApp.git"
+  },
+  "author": "tama@ttk1.net",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ttk1/SimpleWebApp/issues"
+  },
+  "homepage": "https://github.com/ttk1/SimpleWebApp#readme"
+}
