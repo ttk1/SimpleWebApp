@@ -13,9 +13,9 @@ app.set('view options', { delimiter: '?' });
 app.get('/*', (req, res) => {
   const signature = req.header('x-goog-iap-jwt-assertion');
   const decoded = jws.decode(signature);
-  const kid = decoded.header.kid;
-  const alg = decoded.header.alg;
-  if (alg && keys[kid] && jws.verify(signature, alg, keys[kid])) {
+  const alg = decoded?.header?.alg;
+  const kid = decoded?.header?.kid;
+  if (alg && kid && keys[kid] && jws.verify(signature, alg, keys[kid])) {
     res.render('./index', {
       msg: 'Welcome!'
     });
