@@ -1,20 +1,23 @@
 {
 	"folders": [{
-			"path": "."
+		"path": "."
 	}],
 	"settings": {
-			"eslint.validate": [
-					"javascript",
-					"javascriptreact",
-					{
-						"language": "html",
-						"autoFix": true
-					},
-					{
-							"language": "typescript",
-							"autoFix": true
-					}
-			],
-			"git.ignoreLimitWarning": true
+		"terminal.integrated.env.windows": {
+			"PATH": "${env:PATH};${workspaceRoot}\\node_modules\\.bin"
+		},
+		"eslint.validate": [
+			"javascript",
+			"javascriptreact",
+			{
+				"language": "html",
+				"autoFix": true
+			},
+			{
+				"language": "typescript",
+				"autoFix": true
+			}
+		],
+		"git.ignoreLimitWarning": true
 	}
 }
