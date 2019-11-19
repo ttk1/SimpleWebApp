@@ -23,13 +23,15 @@ export function verify(conf: { [key: string]: string }): express.RequestHandler 
 
       // ペイロードのチェック
 
+      const skew = 10;
+
       // 有効期限のチェック
-      if (decoded.payload.exp < now) {
+      if (decoded.payload.exp + 2 * skew <= now) {
         throw new Error(`exp ${decoded.payload.exp} ${now}`);
       }
       // 発行時のチェック
-      if (now < decoded.payload.iat) {
-        throw new Error(`iat ${now} ${decoded.payload.exp}`);
+      if (now <= decoded.payload.iat - skew) {
+        throw new Error(`iat ${now} ${decoded.payload.iat}`);
       }
       // 対象のチェック
       if (decoded.payload.aud !== conf.aud) {
