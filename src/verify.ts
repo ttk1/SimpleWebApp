@@ -2,6 +2,9 @@ import fs = require('fs');
 import jws = require('jws');
 import express = require('express');
 
+/**
+ * https://cloud.google.com/iap/docs/signed-headers-howto
+ */
 export function verify(conf: { [key: string]: string }): express.RequestHandler {
   const keys: { [key: string]: string } = JSON.parse(String(fs.readFileSync(conf.keys)));
   return (req, res, next): void => {
@@ -36,11 +39,15 @@ export function verify(conf: { [key: string]: string }): express.RequestHandler 
       if (decoded.payload.iss !== conf.iss) {
         throw new Error(`iss ${decoded.payload.iss} ${conf.iss}`);
       }
+
+      // ユーザIDの記録
+      res.locals.sub = decoded.payload.sub;
+      res.locals.email = decoded.payload.email;
+
       next();
     } catch (err) {
       console.error(err);
       res.status(401).send('Unauthorized!');
-      return;
     }
   };
 }

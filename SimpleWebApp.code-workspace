@@ -10,10 +10,6 @@
 			"javascript",
 			"javascriptreact",
 			{
-				"language": "html",
-				"autoFix": true
-			},
-			{
 				"language": "typescript",
 				"autoFix": true
 			}
