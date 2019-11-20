@@ -6,6 +6,15 @@ import express = require('express');
  * https://cloud.google.com/iap/docs/signed-headers-howto
  */
 export function verify(conf: { [key: string]: string }): express.RequestHandler {
+  // 開発環境用
+  if (process.env.ENV === 'dev') {
+    return (req, res, next): void => {
+      res.locals.sub = 'test';
+      res.locals.email = 'test';
+      next();
+    };
+  }
+
   const keys: { [key: string]: string } = JSON.parse(String(fs.readFileSync(conf.keys)));
   return (req, res, next): void => {
     try {

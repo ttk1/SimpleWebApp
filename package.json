@@ -4,8 +4,8 @@
   "description": "Simple WebApp for App Engine",
   "main": "./src/main.ts",
   "scripts": {
-    "start": "ts-node ./src/main.ts",
-    "start-dev": "ts-node-dev ./src/main.ts",
+    "start": "cross-env ENV=prod ts-node ./src/main.ts",
+    "start-dev": "cross-env ENV=dev ts-node-dev ./src/main.ts",
     "deploy": "gcloud app deploy",
     "lint": "eslint . --ext .ts"
   },
@@ -26,6 +26,7 @@
     "@types/express": "^4.17.2",
     "@types/jws": "^3.2.0",
     "@types/node": "^12.12.8",
+    "cross-env": "^6.0.3",
     "ejs": "^2.7.2",
     "express": "^4.17.1",
     "jws": "^3.2.2",
