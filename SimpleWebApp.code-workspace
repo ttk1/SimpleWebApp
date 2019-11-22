@@ -7,8 +7,14 @@
 			"PATH": "${env:PATH};${workspaceRoot}\\node_modules\\.bin"
 		},
 		"eslint.validate": [
-			"javascript",
-			"javascriptreact",
+			{
+				"language": "html",
+				"autoFix": true
+			},
+			{
+				"language": "javascript",
+				"autoFix": true
+			},
 			{
 				"language": "typescript",
 				"autoFix": true
