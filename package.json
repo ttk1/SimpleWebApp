@@ -7,7 +7,7 @@
     "start": "cross-env ENV=prod ts-node ./src/main.ts",
     "start-dev": "cross-env ENV=dev ts-node-dev ./src/main.ts",
     "deploy": "gcloud app deploy",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts --ext .html --ext .ejs"
   },
   "repository": {
     "type": "git",
